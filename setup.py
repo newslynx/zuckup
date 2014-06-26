@@ -25,7 +25,7 @@ required = [str(ir.req) for ir in parse_requirements("requirements.txt")]
 
 # setup
 setup(
-  name='tk-facebook',
+  name='zuckup',
   version='0.0.1',
   description='simple facebook parsing',
   long_description = long_description,
@@ -39,13 +39,15 @@ setup(
   keywords='',
   author='Brian Abelson',
   author_email='brian@newslynx.org',
-  url='http://github.com/newslynx/tk-facebook',
+  url='http://github.com/newslynx/zuckup',
   license='MIT',
   packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
   namespace_packages=[],
   include_package_data=False,
   zip_safe=False,
   install_requires=[
+    'facepy',
+    'siegfried'
   ],
   tests_require=[]
 )

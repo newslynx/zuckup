@@ -22,7 +22,7 @@ def connect(**kw):
   return facepy.GraphAPI(access_token)
 
 def generate_app_access_token(app_id, app_secret):
-  
+
   """
   Get an extended OAuth access token.
 
@@ -35,16 +35,16 @@ def generate_app_access_token(app_id, app_secret):
   """
   # access tokens
   default_access_token = facepy.get_application_access_token(
-      application_id = app_id,  
-      application_secret_key = app_secret
+    application_id = app_id,  
+    application_secret_key = app_secret
   )
   graph = facepy.GraphAPI(default_access_token)
 
   response = graph.get(
-      path='oauth/access_token',
-      client_id = app_id,
-      client_secret = app_secret,
-      grant_type = 'client_credentials'
+    path='oauth/access_token',
+    client_id = app_id,
+    client_secret = app_secret,
+    grant_type = 'client_credentials'
   )
   components = parse_qs(response)
   token = components['access_token'][0]

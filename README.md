@@ -1,15 +1,11 @@
-![travis-img](https://travis-ci.org/newslynx/tk-facebook.svg)
-tk-facebook
+![travis-img](https://travis-ci.org/newslynx/zuckup.svg)
+zuckup
 ======
 _simple facebook parsing_
 
 ## Install
 ```
-mkvirtualenv tk-facebook
-git clone https://github.com/newslynx/tk-facebook.git
-cd tk-facebook
-pip install -r requirements.txt
-pip install .
+pip install zuckup
 ```
 
 ## Test
@@ -17,3 +13,4 @@ Requires `nose`
 ```
 nosetests
 ```
+
