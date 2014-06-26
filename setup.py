@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 import os 
-from pip.req import parse_requirements
 
 # hack for working with pandocs
 import codecs 
@@ -19,9 +18,6 @@ try:
   long_description = pypandoc.convert(readme, 'rst')
 except (IOError, ImportError):
   long_description = ""
-
-# parse requirements file
-required = [str(ir.req) for ir in parse_requirements("requirements.txt")]
 
 # setup
 setup(
