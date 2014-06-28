@@ -3,7 +3,9 @@
 
 from functools import wraps 
 
-from parsers import parse_insights, parse_post, parse_page_stats
+from parsers import (
+  parse_insights, parse_post, parse_page_stats, get_datetime
+  )
 from util import opt_connect, validate_kw, catch_err
 
 def fb(requires=[], default={}):
@@ -38,16 +40,18 @@ def insights(api, **kw):
     for page in pages:
       for post in page['data']:
         post_id = post['id']
+        pub_datetime = get_datetime(post)
         insights = api.get(post_id + "/insights", **kw)
-        yield parse_insights(insights, page_id, post_id)
+        yield parse_insights(insights, page_id, post_id, pub_datetime)
 
   # if not, simple yield
   else:
     page = api.get(page_id + "/posts", **kw)
     for post in page['data']:
       post_id = post['id']
+      pub_datetime = get_datetime(post)
       insights = api.get(post_id + "/insights", **kw)
-      yield parse_insights(insights, page_id, post_id)
+      yield parse_insights(insights, page_id, post_id, pub_datetime)
 
 
 @fb(requires=['page_id'])

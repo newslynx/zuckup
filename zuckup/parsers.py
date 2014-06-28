@@ -28,7 +28,7 @@ def parse_page_stats(page, page_id=None):
   data['datetime'] = utc_now()
   return data
 
-def parse_insights(data, page_id=None, post_id=None):
+def parse_insights(data, page_id=None, post_id=None, pub_datetime=None):
   """
   Get insights data if indicated so by the config file
   """
@@ -38,6 +38,7 @@ def parse_insights(data, page_id=None, post_id=None):
   insights['page_id'] = page_id
   insights['post_id'] = post_id
   insights['datetime'] = utc_now()
+  insights['pub_datetime'] = pub_datetime
 
   # flatten dict
   for d in data:
