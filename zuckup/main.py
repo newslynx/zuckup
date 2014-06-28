@@ -80,5 +80,7 @@ def page_stats(api, **kw):
   return parse_page_stats(page, page_id)
 
 if __name__ == '__main__':
-  print page_stats(page_id="nytimes")
+  posts = [p for p in page(page_id="nytimes")]
+  print posts[10]
+
 

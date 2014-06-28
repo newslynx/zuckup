@@ -60,7 +60,7 @@ print page_stats
 
 Finally, if you want to connect with just an access token, say one acquired from a user authenticating to your app, pass in `access_token` to any of the methods:
 
-```
+```python
 import zuckup
 
 conn = zuckup.connect(app_id='12345', app_secret='678910')

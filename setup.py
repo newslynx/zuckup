@@ -43,7 +43,8 @@ setup(
   zip_safe=False,
   install_requires=[
     'facepy',
-    'siegfried'
+    'siegfried',
+    'pytz'
   ],
   tests_require=[]
 )
