@@ -17,12 +17,12 @@ try:
   import pypandoc
   long_description = pypandoc.convert(readme, 'rst', format="md")
 except (IOError, ImportError):
-  long_description = 
-""
+  long_description = ""
+
 # setup
 setup(
   name='zuckup',
-  version='0.0.7',
+  version='0.0.8',
   description='simple facebook parsing',
   long_description = long_description,
   classifiers=[
