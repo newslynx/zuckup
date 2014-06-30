@@ -42,6 +42,7 @@ for post in zuckup.page(page_id='nytimes')
 import zuckup
 
 page_stats = zuckup.page_stats(page_id='nytimes')
+print page_stats
 ```
 
 ## Authentication
@@ -67,7 +68,7 @@ page_stats = zuckup.page_stats(page_id='nytimes', access_token='a-users-access-t
 print page_stats
 ```
 
-## Paginate
+## Pagination
 paginate through results using `paginate` with `insights` and  `page`:
 ```
 for post in zuckup.page(page_id='nytimes', paginate=True)
