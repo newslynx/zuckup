@@ -15,14 +15,14 @@ readme = os.path.join(os.path.dirname(__file__), 'README.md')
 
 try:
   import pypandoc
-  long_description = pypandoc.convert(readme, 'rst')
+  long_description = pypandoc.convert(readme, 'rst', format="md")
 except (IOError, ImportError):
-  long_description = ""
-
+  long_description = 
+""
 # setup
 setup(
   name='zuckup',
-  version='0.0.6',
+  version='0.0.7',
   description='simple facebook parsing',
   long_description = long_description,
   classifiers=[
