@@ -7,38 +7,43 @@ from siegfried import (
   prepare_url, is_short_url, unshorten_url, urls_from_string
   )
 
-def parse_post(post, page_id=None):
-  data = {}
-  data['page_id'] = page_id
-  data['post_id'] = post.get('id', None)
-  data['urls'] = get_urls(post)
-  data['img_url'] = get_img(post)
-  data['datetime'] = get_datetime(post)
-  data['message'] = post.get('message', None)
-  data['description'] = post.get('description', None)
-  data['status_type'] = post.get('status_type', None)
-  data['type'] = post.get('type', None)
+def parse_post(args):
+  post, page_id = args
+  data = {
+    'page_id' : page_id,
+    'post_id' : post.get('id', None),
+    'urls' : get_urls(post),
+    'img_url' : get_img(post),
+    'datetime' : get_datetime(post),
+    'message' : post.get('message', None),
+    'description' : post.get('description', None),
+    'status_type' : post.get('status_type', None),
+    'type' : post.get('type', None)
+  }
   return data
 
-def parse_page_stats(page, page_id=None):
-  data = {}
-  data['page_id'] = page_id
-  data['page_talking_about_count'] = int(page['talking_about_count'])
-  data['page_likes'] = int(page['likes'])
-  data['datetime'] = utc_now()
+def parse_page_stats(args):
+  page, page_id = args
+  data = {
+    'page_id' : page_id,
+    'page_talking_about_count' : int(page['talking_about_count']),
+    'page_likes' : int(page['likes']),
+    'datetime' : utc_now()
+  }
   return data
 
-def parse_insights(data, page_id=None, post_id=None, pub_datetime=None):
+def parse_insights(args):
   """
   Get insights data if indicated so by the config file
   """
-  
+  insights, page_id, post_id, pub_datetime = args
   # add metadata
-  insights = {}
-  insights['page_id'] = page_id
-  insights['post_id'] = post_id
-  insights['datetime'] = utc_now()
-  insights['pub_datetime'] = pub_datetime
+  insights = {
+    'page_id' : page_id,
+    'post_id' : post_id,
+    'datetime' : utc_now(),
+    'pub_datetime' : pub_datetime
+  }
 
   # flatten dict
   for d in data:

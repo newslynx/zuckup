@@ -23,7 +23,7 @@ nosetests
 ```python
 import zuckup
 
-for post_stats in zuckup.insights(page_id='nytimes'):
+for post_stats in zuckup.insights(page_id='authenticated_page'):
   print post_stats
 ```
 
@@ -63,9 +63,23 @@ Finally, if you want to connect with just an access token, say one acquired from
 ```python
 import zuckup
 
-conn = zuckup.connect(app_id='12345', app_secret='678910')
-
 page_stats = zuckup.page_stats(page_id='nytimes', access_token='a-users-access-token')
 print page_stats
+```
+
+## Paginate
+paginate through results using `paginate` with `insights` and  `page`:
+```
+for post in zuckup.page(page_id='nytimes', paginate=True)
+  print post 
+```
+
+## Concurrency
+optional concurrency for `insights` and `page` via `gevent`:
+```
+import zuckup
+
+for post in zuckup.page(page_id='nytimes', concurrent=True)
+  print post 
 ```
 

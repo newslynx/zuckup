@@ -3,8 +3,11 @@
 
 default_kws = {
   'page' : False,
+  'paginate' : True,
+  'concurrent': False,
+  'num_workers': 20,
   'since_id': None,
-  'throttle' : 15,
+  'throttle' : 1,
   'limit' : 100,
   'wait': 1,
   'backoff': 2,
