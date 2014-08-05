@@ -41,7 +41,7 @@ def concurrent_yield(func, iterartor, **kw):
   else:
     logger.warn('Cannot run concurrently without importing gevent')
     for args in iterartor:
-      yield func(*args)
+      yield func(args)
 
 def utc_now():
   dt = datetime.utcnow()

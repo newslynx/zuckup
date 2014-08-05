@@ -92,8 +92,3 @@ def page_stats(api, **kw):
   page = api.get(page_id, **kw)
   return page, page_id
 
-if __name__ == '__main__':
-  for p in page(page_id="nytimes", concurrent=True):
-    print p
-
-
