@@ -22,7 +22,7 @@ except (IOError, ImportError):
 # setup
 setup(
   name='zuckup',
-  version='0.0.9',
+  version='0.1.0',
   description='simple facebook parsing',
   long_description = long_description,
   classifiers=[
